@@ -27,7 +27,26 @@ class Instructor extends Person {
     grade(Student, subject) {
         console.log(`${Student.name} recieves a perfect score on ${subject}`)
     }
+    mark(student) {
+        if (student.grade >= 70) {
+            console.log(`Yay! You Graduated!`) 
+        } else {
+            let scoreAdd = Math.floor(Math.random() * 10)
+            student.grade += scoreAdd
+            if (student.grade + scoreAdd >= 70) {
+                console.log(`Yay! You Graduated with ${scoreAdd} points for effort!`) 
+           } else {
+            let scoreAdd = Math.floor(Math.random() * 100)
+            student.grade += scoreAdd
+            if (student.grade + scoreAdd >= 70) {
+                console.log(`Yay! You Graduated with ${scoreAdd} points for effort!`) 
+            }
+        }
+       
+    }
 }
+}
+
 
 
 class Student extends Person {
@@ -36,6 +55,7 @@ class Student extends Person {
         this.previousBackground = Satts.previousBackground;
         this.className = Satts.className;
         this.favSubjects = Satts.favSubjects;
+        this.grade = Math.floor(Math.random() * 100);
     }
     listsSubjects() {
         for (let i = 0; i < this.favSubjects.length; i ++) {
@@ -153,3 +173,13 @@ const Josh = new Instructor({
   Ellis.PRAssignment('CSS')
   Chance.grade(Ellis, 'JavaScript')
   Angelo.standUp('web17')
+  Angelo.mark(Lydia)
+  Chance.mark(Ellis)
+  
+/*
+  Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+Now that our students have a grade build out a method on the Instructor (this will be used by BOTH instructors and PM's) that will randomly add or subtract points to a student's grade. Math.random will help.
+Add a graduate method to a student.
+This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+If the student's grade is above a 70% let them graduate! Otherswise go back to grading their assignments to increase their score.
+*/
