@@ -33,8 +33,8 @@ class Instructor extends Person {
         } else {
             while( student.grade < 70) {
                 let extraCredit = Math.floor(Math.random() * 10);
-                student.grade += extraCredit;
-                console.log(`You did not pass because your score was ${student.grade}, but you get ${extraCredit} extra credit points!`)
+                student.grade += extraCredit
+                console.log(`You did not pass because your score was ${student.grade}, but you get ${extraCredit} extra credit points!` )
             }
             console.log(`You did it!!`)
         }
@@ -169,6 +169,8 @@ const Josh = new Instructor({
   Angelo.standUp('web17')
  
   Chance.mark(Ellis)
+  Angelo.mark(Lydia)
+ 
   
 /*
   Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
