@@ -29,22 +29,16 @@ class Instructor extends Person {
     }
     mark(student) {
         if (student.grade >= 70) {
-            console.log(`Yay! You Graduated!`) 
+            console.log(`Yay! You Graduated with a ${student.grade}%`) 
         } else {
-            let scoreAdd = Math.floor(Math.random() * 10)
-            student.grade += scoreAdd
-            if (student.grade + scoreAdd >= 70) {
-                console.log(`Yay! You Graduated with ${scoreAdd} points for effort!`) 
-           } else {
-            let scoreAdd = Math.floor(Math.random() * 100)
-            student.grade += scoreAdd
-            if (student.grade + scoreAdd >= 70) {
-                console.log(`Yay! You Graduated with ${scoreAdd} points for effort!`) 
+            while( student.grade < 70) {
+                let extraCredit = Math.floor(Math.random() * 10);
+                student.grade += extraCredit;
+                console.log(`You did not pass because your score was ${student.grade}, but you get ${extraCredit} extra credit points!`)
             }
+            console.log(`You did it!!`)
         }
-       
     }
-}
 }
 
 
@@ -173,7 +167,7 @@ const Josh = new Instructor({
   Ellis.PRAssignment('CSS')
   Chance.grade(Ellis, 'JavaScript')
   Angelo.standUp('web17')
-  Angelo.mark(Lydia)
+ 
   Chance.mark(Ellis)
   
 /*
